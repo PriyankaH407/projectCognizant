@@ -1,0 +1,351 @@
+﻿
+@{
+    ViewBag.Title = "IsDB-BISEW MVC Project";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<style>
+    .aa-browse-btn {
+        display: inline-block;
+        font-size: 16px;
+        padding: 12px 18px;
+        color: #a94442;
+    }
+
+    body {
+        height: 900px;
+        height: 100%;
+        background-image: url('../Content/img/shopblurr.png');
+        background-size: 100% 900px;
+    }
+
+    .slider-container {
+        position: relative;
+        max-width: 900px;
+        margin: auto;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+        padding-top: 10px;
+    }
+
+    .slide {
+        min-width: 100%;
+        overflow: hidden;
+    }
+
+        .slide img {
+            width: 100%;
+            height: 300px;
+            max-height: 400px
+        }
+
+    .slider-content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        transform: translateY(-50%);
+    }
+
+    .prev-btn {
+        left: 0;
+        margin-left: 0px;
+    }
+
+    .next-btn {
+        right: 0;
+    }
+</style>
+
+<!-- Start slider -->
+<section id="aa-slider">
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="~/Content/img/slider/1.jpg" alt="Slide 1" />
+                <div class="slider-content1">
+                    <h2 style="color:black">50% Offer</h2>
+                    <h3 style="color:black">Men's Fashion</h3>
+                    <p style="color:black">Discover The letest Trends in Men's Fashion At our Online Store</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="~/Content/img/slider/3.jpg" alt="Slide 2">
+                <div class="slider-content2">
+                    <h2 style="color:black">35% Offer</h2>
+                    <h3 style="color:black">Womens's Fashion'</h3>
+                    <p style="color:black">Discover The Perfect outfit for any event with our selection of stunning dresses.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="~/Content/img/slider/2.jpg" alt="Slide 3">
+                <div class="slider-content3">
+                    <h2>60% Offer</h2>
+                    <h3>Accessories</h3>
+                    <p>Complete Your Look and add flair to any outfit with our exquisite collection of fashion accessories. </p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="~/Content/img/electronics-device.jpg" alt="Slide 3">
+                <div class="slider-content3">
+                    <h2>10% Offer</h2>
+                    <h3>Electronics</h3>
+                    <p>Complete Your Look and add flair to any outfit with our exquisite collection of fashion accessories. </p>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev-btn" onclick="moveSlider(-1)"><</button>
+        <button class="slider-btn next-btn" onclick="moveSlider(1)">></button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        let slides = document.getElementsByClassName("slide");
+        let timer;
+
+        function startSlider() {
+            timer = setInterval(() => {
+                moveSlider(1);
+            }, 3000); // Change slide every 3 seconds
+        }
+
+        function stopSlider() {
+            clearInterval(timer);
+        }
+
+        function moveSlider(n) {
+            showSlides(slideIndex += n);
+            resetTimer();
+        }
+
+        function showSlides(n) {
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        function resetTimer() {
+            stopSlider();
+            startSlider();
+        }
+
+        startSlider();
+    </script>
+    @*</div>
+
+
+
+
+        <!-- slider navigation btn -->
+        <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
+            <a type="button" href="" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
+            <a type="button" href="" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
+        </fieldset>*@
+
+</section>
+<!-- / slider -->
+<!-- Start Promo section -->
+@*<section id="aa-promo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-promo-area">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<!-- / Promo section -->
+<!-- Products section -->
+<section id="aa-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="aa-product-area">
+                        <div class="aa-product-inner">
+                            <!-- start prduct navigation -->
+                           @*<ul class="nav nav-tabs aa-products-tab">
+                                <li class="active"><a href="#men" data-toggle="tab">Men</a></li>
+                                <li><a href="#women" data-toggle="tab">Women</a></li>
+                                <li><a href="#accessories" data-toggle="tab">Accessories</a></li>
+                                <li><a href="#electronics" data-toggle="tab">Electronic</a></li>
+                            </ul>*@
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- Start men product category -->
+                               <div class="tab-pane fade in active" id="men">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.MenProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+
+                                <!-- start women product category -->
+                                <div class="tab-pane fade" id="women">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.WomenProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+
+                                <!-- start Accessories product category -->
+                                <div class="tab-pane fade" id="accessories">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.AccessoriesProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+
+                                </div>
+
+                                <!-- start electronic product category -->
+                                <div class="tab-pane fade" id="electronics">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.ElectronicsProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+                                        
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+
+                                </div>
+                                <!-- / electronic product category -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Products section -->
+<!-- banner section -->
+<section id="aa-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="aa-banner-area">
+                        <a href="#"><img src="~/Content/img/home-banar.png" alt="fashion banner img"></a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*
+    <!-- popular section -->
+    <section id="aa-popular-category">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="aa-popular-category-area">
+                            <!-- start prduct navigation -->
+                            <ul class="nav nav-tabs aa-products-tab">
+                                <li class="active"><a href="#popular" data-toggle="tab">Popular</a></li>
+                                <li><a href="#featured" data-toggle="tab">Featured</a></li>
+                                <li><a href="#latest" data-toggle="tab">Latest</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- Start men popular category -->
+                                <div class="tab-pane fade in active" id="popular">
+                                    <ul class="aa-product-catg aa-popular-slider">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.MenProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                <!-- / popular product category -->
+                                <!-- start featured product category -->
+                                <div class="tab-pane fade" id="featured">
+                                    <ul class="aa-product-catg aa-featured-slider">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.AccessoriesProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                <!-- / featured product category -->
+                                <!-- start latest product category -->
+                                <div class="tab-pane fade" id="latest">
+                                    <ul class="aa-product-catg aa-latest-slider">
+                                        <!-- start single product item -->
+                                        @foreach (var item in (List<MyEcommerceAdmin.Models.Product>)@ViewBag.ElectronicsProduct)
+                                        {
+                                            { Html.RenderPartial("_Product", item); }
+                                        }
+                                        <!-- end start single product item -->
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                <!-- / latest product category -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<!-- / popular section -->

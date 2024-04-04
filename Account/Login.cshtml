@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<style>
+
+
+
+
+    body {
+        position: center;
+        width: 100%;
+        background-image: url('../Content/img/shopblurr.png');
+        background-size: cover;
+    }
+
+    .aa-myaccount-login, aa-myaccount-register {
+        border: 1px solid black;
+        margin: 2% auto 3% auto;
+        max-width: 500px;
+        min-width: 250px;
+        padding-left: 50px;
+        padding-right: 70px;
+        border-radius: 10px;
+        transform: translate3d(-60%,-40%);
+        padding-bottom: 30px;
+        background-color: rgba(0,0,0,0.2);
+        position: center;
+        box-shadow: inset -5px -5px rgba(0,0,0,0.5);
+    }
+</style>
+
+<!-- Cart view section -->
+<section id="aa-myaccount">
+    <div class="container">
+        <div class="row">
+
+            <div class="row">
+                <!--<div class="col-md-6">-->
+                <div class="aa-myaccount-login" align="center">
+                    <h4>Login</h4>
+
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "aa-login-form" }))
+                    {
+                        <label for="">Username or Email address<span>*</span></label>
+                        <input name="UserName" type="text" required placeholder="Username">
+                        <label for="">Password<span>*</span></label>
+                        <input name="Password" type="password" required placeholder="Password">
+                        <button type="submit" class="btn btn-success">Login</button>
+                        <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                        <p class="aa-lost-password"><a href="#">Forgot password</a></p>}
+
+                    <a href="@Url.Action("Index","Home")"> Go to Homepage</a>
+
+
+                    @*@ <div class="col-md-6">*@
+                    <div class="aa-myaccount-register">
+                        <h4 style="color:red">don't have any account?</h4>
+                        @*
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "aa-login-form" }))
+            {
+                <label for="">First Name<span>*</span></label>
+                <input name="First_Name" type="text" placeholder="Enter first name">
+
+                <label for="">Last Name<span>*</span></label>
+                <input name="Last_Name" type="text" placeholder="Enter last name">
+
+                <label for="">Username<span>*</span></label>
+                <input name="UserName" type="text" placeholder="Username">
+
+                <label for="">Password<span>*</span></label>
+                <input name="Password" type="password" placeholder="Password">
+
+                <label for="">Email<span>*</span></label>
+                <input name="Email" type="text" placeholder="Enter your email">
+
+                <label for="">Mobile<span>*</span></label>
+                <input name="Phone" type="text" placeholder="Mobile">
+
+                <label for="">Address<span></span></label>
+                <input name="Address" type="text" placeholder="Address">
+
+                <button type="submit" class="btn btn-primary">Register</button>
+              }*@
+
+                        <h5 class="text-info" style="color:red">Click the button to create a new account</h5>
+
+                        <a href="@Url.Action("RegisterCustomer", "Account")" class="btn btn-primary btn-block fs-2">Register Now</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--</div>-->
+    @*</div>*@
+</section>
+<!-- / Cart view section -->
